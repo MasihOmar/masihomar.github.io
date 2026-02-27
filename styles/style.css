@@ -289,28 +289,88 @@ img {
 .nav-link {
   padding: 8px 16px;
   border-radius: 4px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   color: var(--text-secondary);
   transition: all var(--transition-fast);
+  position: relative;
+}
+
+/* Futuristic Bracket Hover Effect */
+.nav-link::before,
+.nav-link::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  color: #00d4ff;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.nav-link::before {
+  content: "[";
+  left: -5px;
+}
+
+.nav-link::after {
+  content: "]";
+  right: -5px;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
 }
 
+.nav-link:hover::before {
+  opacity: 1;
+  left: 2px;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+  right: 2px;
+}
+
+.nav-link.active::before {
+  opacity: 1;
+  left: 2px;
+  color: #7b61ff;
+}
+
+.nav-link.active::after {
+  opacity: 1;
+  right: 2px;
+  color: #7b61ff;
+}
+
+/* Cyberpunk Contact Button */
 .nav-link--cta {
-  background: var(--gradient-primary);
-  color: #fff !important;
+  background: rgba(0, 212, 255, 0.1);
+  color: #00d4ff !important;
   padding: 8px 18px;
-  border-radius: 4px;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+.nav-link--cta::before, .nav-link--cta::after {
+  display: none; /* Hide hover brackets for CTA */
 }
 
 .nav-link--cta:hover {
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
-  background: var(--gradient-primary) !important;
+  background: rgba(0, 212, 255, 0.2) !important;
+  border-color: #00d4ff;
+  box-shadow: 
+    0 0 15px rgba(0, 212, 255, 0.3),
+    inset 0 0 15px rgba(0, 212, 255, 0.3);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
 }
 
 /* Mobile nav toggle */
@@ -374,26 +434,32 @@ img {
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: var(--gradient-hero);
+  /* Deep Space Nebula Background */
+  background: 
+    radial-gradient(circle at 50% 100%, rgba(123, 97, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
+    #030712;
   padding: 140px 24px 80px;
 }
 
-/* Animated grid background */
-.hero-bg-grid {
+/* Matrix Canvas Background */
+.hero-bg-matrix {
   position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
   mask-image: radial-gradient(
-    ellipse 80% 60% at 50% 40%,
-    black 30%,
+    ellipse 100% 100% at 50% 50%,
+    black 40%,
     transparent 100%
   );
   -webkit-mask-image: radial-gradient(
-    ellipse 80% 60% at 50% 40%,
-    black 30%,
+    ellipse 100% 100% at 50% 50%,
+    black 40%,
     transparent 100%
   );
 }
@@ -402,22 +468,23 @@ img {
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.4;
-  animation: glow-float 8s ease-in-out infinite;
+  filter: blur(120px);
+  opacity: 0.5;
+  animation: glow-float 10s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .hero-glow--1 {
-  width: 500px;
-  height: 500px;
-  background: rgba(0, 212, 255, 0.3);
-  top: -10%;
-  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: rgba(0, 212, 255, 0.25);
+  top: -20%;
+  right: -10%;
   animation-delay: 0s;
 }
 
 .hero-glow--2 {
-  width: 400px;
+  width: 500px;
   height: 400px;
   background: rgba(123, 97, 255, 0.25);
   bottom: 10%;
@@ -453,66 +520,149 @@ img {
   max-width: 800px;
 }
 
-/* Hero profile photo */
+/* Hero sys bar */
+.hero-sys-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  padding-bottom: 12px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.sys-info {
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+}
+
+.sys-coords {
+  opacity: 0.7;
+}
+
+/* Hero profile photo container */
+.hero-photo-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
 .hero-photo {
-  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+  width: 140px;
+  height: 140px;
+  background: var(--gradient-primary);
+  /* Futuristic Hexagon Shape */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  padding: 3px;
+  transition: transform var(--transition-bounce);
 }
 
 .hero-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 3px solid transparent;
-  background:
-    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
-    var(--gradient-primary) border-box;
-  box-shadow:
-    0 0 40px rgba(0, 212, 255, 0.2),
-    0 0 80px rgba(123, 97, 255, 0.1);
-  transition:
-    transform var(--transition-smooth),
-    box-shadow var(--transition-smooth);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: grayscale(10%) contrast(1.1);
+  background: var(--bg-primary);
+  transition: all var(--transition-smooth);
 }
 
-.hero-avatar:hover {
+.hero-photo-container:hover .hero-photo {
   transform: scale(1.05);
-  box-shadow:
-    0 0 50px rgba(0, 212, 255, 0.35),
-    0 0 100px rgba(123, 97, 255, 0.15);
+}
+
+.hero-photo-container:hover .hero-avatar {
+  filter: grayscale(0%) contrast(1.2);
+}
+
+/* Sci-fi Orbit Rings */
+.orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ring-1 {
+  width: 180px;
+  height: 180px;
+  border: 1px dashed rgba(0, 212, 255, 0.4);
+  animation: spin-right 20s linear infinite;
+}
+
+.ring-2 {
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(123, 97, 255, 0.15);
+  border-top: 2px solid #00d4ff;
+  border-bottom: 2px solid #7b61ff;
+  animation: spin-left 15s linear infinite;
+}
+
+@keyframes spin-right {
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spin-left {
+  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* Tech brackets */
+.tech-bracket {
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+  font-weight: 300;
+  opacity: 0.8;
+  margin: 0 4px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
+  gap: 10px;
+  padding: 8px 24px;
   border-radius: 4px;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  font-size: 0.85rem;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-accent);
+  letter-spacing: 1.5px;
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
   margin-bottom: 32px;
+  box-shadow: inset 0 0 12px rgba(0, 212, 255, 0.1);
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .badge-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #4ade80;
+  background: #00d4ff;
   animation: pulse-dot 2s ease-in-out infinite;
+  box-shadow: 0 0 8px #00d4ff;
 }
 
 @keyframes pulse-dot {
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.6);
   }
   50% {
-    opacity: 0.7;
-    box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+    opacity: 0.5;
+    box-shadow: 0 0 0 8px rgba(0, 212, 255, 0);
   }
 }
 
@@ -756,21 +906,63 @@ img {
   margin-bottom: 0;
 }
 
-/* Alien Chat */
+/* Alien Chat - Futuristic UI */
 .alien-chat {
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
-  background: transparent;
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  background: rgba(6, 11, 17, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(0, 212, 255, 0.05);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Glowing top edge */
+.alien-chat::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, #00d4ff, #7b61ff, transparent);
+  z-index: 10;
+  opacity: 0.8;
+}
+
+.alien-chat:hover {
+  box-shadow: 
+    0 10px 40px rgba(0, 212, 255, 0.1),
+    inset 0 0 30px rgba(0, 212, 255, 0.08);
+  border-color: rgba(0, 212, 255, 0.3);
 }
 
 .alien-chat-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
-  padding: 12px 16px;
-  background: transparent;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+  padding: 14px 20px;
+  background: rgba(0, 212, 255, 0.03);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  position: relative;
+}
+
+/* Animated scanning line under header */
+.alien-chat-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 20%; height: 1px;
+  background: #00d4ff;
+  box-shadow: 0 0 8px #00d4ff, 0 0 2px #fff;
+  animation: scan-line 3s ease-in-out infinite alternate;
+}
+
+@keyframes scan-line {
+  0% { left: 0%; right: 80%; }
+  100% { left: 80%; right: 0%; }
 }
 
 .alien-signal {
@@ -920,7 +1112,7 @@ img {
 .timeline::before {
   content: "";
   position: absolute;
-  left: 16px;
+  left: 15px;
   top: 0;
   bottom: 0;
   width: 2px;
@@ -1521,16 +1713,8 @@ img {
     padding-left: 30px;
   }
 
-  .timeline::before {
-    left: 10px;
-  }
-
   .timeline-marker {
     left: -30px;
-  }
-
-  .timeline-dot {
-    left: -2px;
   }
 
   .timeline-header-row {

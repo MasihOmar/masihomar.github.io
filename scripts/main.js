@@ -271,4 +271,103 @@ document.addEventListener("DOMContentLoaded", () => {
       this.style.transition = "all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)";
     });
   });
+
+  // ==========================================
+  // 10. AI MATRIX CODE RAIN (HERO BACKGROUND)
+  // ==========================================
+  const canvas = document.getElementById('heroMatrixCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas to full hero section size
+    const resizeCanvas = () => {
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Characters: Binary + AI terms
+    const binary = '01';
+    const aiWords = ['AGI', 'MODEL', 'EPOCH', 'LOSS', 'TRAIN', 'PROMPT', 'NEURAL', 'TENSOR', 'WEIGHT'];
+    // Merge into an array of individual printable strings/chars
+    let characters = binary.split('');
+    
+    // Increased font size to decrease column density
+    const fontSize = 24;
+    let columns = Math.floor(canvas.width / fontSize);
+    
+    // Array to track the Y coordinate of each column
+    let drops = [];
+    // Array to track if a column is currently dropping a word
+    let wordDrops = [];
+    
+    function initMatrix() {
+      columns = Math.floor(canvas.width / fontSize);
+      drops = [];
+      wordDrops = [];
+      for (let x = 0; x < columns; x++) {
+        drops[x] = Math.random() * -100; // Start off-screen randomly
+        wordDrops[x] = { active: false, word: '', charIndex: 0 };
+      }
+    }
+    
+    initMatrix();
+    window.addEventListener('resize', initMatrix);
+
+    function drawMatrix() {
+      // Darker trail effect for better foreground readability
+      ctx.fillStyle = 'rgba(5, 10, 16, 0.15)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.font = `bold ${fontSize}px "JetBrains Mono", monospace`;
+      ctx.textAlign = 'center';
+
+      for (let i = 0; i < drops.length; i++) {
+        let text = '';
+        
+        // Handle AI word dropping logic
+        if (wordDrops[i].active) {
+          text = wordDrops[i].word[wordDrops[i].charIndex];
+          wordDrops[i].charIndex++;
+          // High intensity color for words to make them stand out
+          ctx.fillStyle = '#9b82ff'; // Slightly brighter purple for words
+          
+          if (wordDrops[i].charIndex >= wordDrops[i].word.length) {
+            wordDrops[i].active = false; // Finished word
+          }
+        } else {
+          // Standard binary drop - Decreased color intensity for readability
+          text = characters[Math.floor(Math.random() * characters.length)];
+          // Mostly faint cyan, occasionally a slightly brighter white-cyan
+          ctx.fillStyle = Math.random() > 0.95 ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 212, 255, 0.15)'; 
+          
+          // Increased chance of word drop so they are noticed more easily
+          if (Math.random() < 0.005) {
+            wordDrops[i].active = true;
+            wordDrops[i].word = aiWords[Math.floor(Math.random() * aiWords.length)];
+            wordDrops[i].charIndex = 0;
+            text = wordDrops[i].word[0];
+          }
+        }
+
+        const x = i * fontSize + (fontSize / 2);
+        const y = drops[i] * fontSize;
+
+        ctx.fillText(text, x, y);
+
+        // Reset drop to top randomly
+        if (y > canvas.height && Math.random() > 0.95) {
+          drops[i] = 0;
+          wordDrops[i].active = false;
+        }
+
+        // Move drop down
+        drops[i]++;
+      }
+    }
+
+    // Decreased speed further: Changed interval from 80 to 120
+    setInterval(drawMatrix, 120);
+  }
 });

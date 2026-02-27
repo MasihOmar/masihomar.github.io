@@ -50,25 +50,36 @@
 
     <!-- ===================== HERO SECTION ===================== -->
     <section id="hero" class="hero">
-      <div class="hero-bg-grid"></div>
+      <canvas class="hero-bg-matrix" id="heroMatrixCanvas"></canvas>
       <div class="hero-glow hero-glow--1"></div>
       <div class="hero-glow hero-glow--2"></div>
       <div class="hero-glow hero-glow--3"></div>
       <div class="hero-content">
-        <div class="hero-photo fade-up">
-          <img src="https://media.licdn.com/dms/image/v2/D4D03AQH0Bfu2bjIFvw/profile-displayphoto-shrink_200_200/B4DZXDlJ1NHAAY-/0/1742743051995?e=2147483647&v=beta&t=9sAXxh7s27UGhpaFd31gEDsP3MK_gyoVSGZDd4c6KbQ" alt="Masihullah Omar" class="hero-avatar" />
+        <div class="hero-sys-bar fade-up">
+          <div class="sys-info">MO-OS // v2.0.26</div>
+          <div class="sys-coords">SYS.LOC [IST: 41.00°N 28.97°E]</div>
+        </div>
+
+        <div class="hero-photo-container fade-up">
+          <div class="hero-photo">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQH0Bfu2bjIFvw/profile-displayphoto-shrink_200_200/B4DZXDlJ1NHAAY-/0/1742743051995?e=2147483647&v=beta&t=9sAXxh7s27UGhpaFd31gEDsP3MK_gyoVSGZDd4c6KbQ" alt="Masihullah Omar" class="hero-avatar" />
+          </div>
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
         </div>
         <div class="hero-badge fade-up">
           <span class="badge-dot"></span>
-          Available for Opportunities
+          <span class="badge-text" data-text="STATUS: ONLINE // ACCEPTING OPPORTUNITIES">STATUS: ONLINE // ACCEPTING OPPORTUNITIES</span>
         </div>
         <h1 class="hero-title fade-up">
           Hi, I'm <span class="gradient-text">Masihullah Omar</span>
         </h1>
         <div class="hero-typing-wrapper fade-up">
+          <span class="tech-bracket">[</span>
           <span class="hero-typing-prefix">I build </span>
           <span class="typing-text" id="typingText"></span>
-          <span class="typing-cursor">|</span>
+          <span class="typing-cursor">_</span>
+          <span class="tech-bracket">]</span>
         </div>
         <p class="hero-description fade-up">
           Software Engineer & AI/ML Specialist crafting
@@ -198,7 +209,7 @@
                 </div>
                 <div class="chat-bubble chat-bubble--alien" style="animation-delay: 1.5s">
                   <div class="chat-bubble-top"><i class="fas fa-meteor chat-ico"></i><span class="chat-sender">XAEL</span></div>
-                  <p>Exactly what you're building. <strong>Software systems, neural models, autonomous agents</strong>. The future rewards builders, not spectators. ⚡</p>
+                  <p>Precisely aligned. Expanding the frontier through <strong>scalable software ecosystems, adaptive neural models, and autonomous agents</strong>. Evolution inherently rewards the architects, not the spectators. ⚡</p>
                 </div>
               </div>
             </div>
@@ -262,6 +273,12 @@
                 <span class="tech-tag">MS SQL Server</span>
                 <span class="tech-tag">REST APIs</span>
                 <span class="tech-tag">CI/CD</span>
+                <span class="tech-tag">Playwright</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">AI (CNN/LSTM)</span>
+                <span class="tech-tag">Reverse Engineering</span>
               </div>
             </div>
           </div>
