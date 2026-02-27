@@ -1,69 +1,836 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masihullah Omar - Full Stack Developer & AI Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>👋 Welcome to My Portfolio</h1>
-            <p>Full Stack Software Engineer | AI/ML Specialist | Mobile Developer</p>
-        </div>
-    </header>
-
-    <nav class="container">
-        <a href="index.html">🏠 Home</a>
-        <a href="about.html">📝 About Me</a>
-        <a href="interests.html">⭐ Interests</a>
-        <a href="contact.html">📧 Contact</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masihullah Omar — Full Stack Developer & AI Engineer</title>
+    <meta
+      name="description"
+      content="Masihullah Omar — Full Stack Software Engineer, AI/ML Specialist, and Mobile Developer based in Istanbul, Turkey. Explore my projects, experience, and skills."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <!-- ===================== NAVIGATION ===================== -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>MO<span class="logo-bracket"
+            >/&gt;</span
+          >
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="#contact" class="nav-link nav-link--cta">Contact</a></li>
+        </ul>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span class="hamburger"></span>
+        </button>
+      </div>
     </nav>
 
-    <main class="container">
-        <section>
-            <h2>Welcome to My Digital Space</h2>
-            <p>I'm <strong>Masihullah Omar</strong>, a passionate Full Stack Software Engineer and AI/ML specialist based in Istanbul, Turkey. I combine technical excellence with innovative thinking to build impactful software solutions.</p>
-            
-            <h3>🚀 What I Do</h3>
-            <ul>
-                <li><strong>Full Stack Development:</strong> Building scalable applications with .NET, React, and React Native</li>
-                <li><strong>AI & Machine Learning:</strong> Developing intelligent systems using Deep Learning, NLP, and time-series forecasting</li>
-                <li><strong>Mobile Apps:</strong> Creating cross-platform applications with 100k+ downloads</li>
-                <li><strong>Backend Optimization:</strong> Designing efficient APIs, microservices, and database solutions</li>
-            </ul>
-
-            <h3>🎯 Current Highlights</h3>
-            <ul>
-                <li><strong>SigortaSepeti:</strong> Full Stack Software Engineer - Reduced API latency by 40%+ through optimization</li>
-                <li><strong>Hastanem Yanımda:</strong> Mobile App Developer - 100k+ downloads across app stores</li>
-                <li><strong>Socitek:</strong> Co-Founder & Lead Developer - Building social-impact applications</li>
-                <li><strong>Marmara University:</strong> Research Assistant - Time-series forecasting and AI research</li>
-            </ul>
-
-            <h3>💡 Key Skills</h3>
-            <p><strong>Languages:</strong> Java, Python, C#, JavaScript, SQL, C, C++, R</p>
-            <p><strong>Frameworks:</strong> React, React Native, Spring Boot, .NET, Node.js, FastAPI, TensorFlow, PyTorch</p>
-            <p><strong>Databases:</strong> MS SQL Server, PostgreSQL, MySQL</p>
-            <p><strong>Specializations:</strong> Machine Learning, NLP, Deep Learning, Full Stack Development, Mobile Development</p>
-
-            <h3>📚 Education</h3>
-            <p><strong>Bachelor of Science in Computer Engineering</strong><br>
-            Marmara University, Istanbul, Turkey (Sep 2022 – July 2027)</p>
-
-            <div style="text-align: center; margin: 30px 0;">
-                <a href="about.html" style="display: inline-block; background: #35424a; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.3s;">
-                    Learn More About Me →
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Masihullah Omar. All rights reserved. | <a href="contact.html" style="color: #e8491d;">Get in Touch</a></p>
+    <!-- ===================== HERO SECTION ===================== -->
+    <section id="hero" class="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow hero-glow--1"></div>
+      <div class="hero-glow hero-glow--2"></div>
+      <div class="hero-glow hero-glow--3"></div>
+      <div class="hero-content">
+        <div class="hero-photo fade-up">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQH0Bfu2bjIFvw/profile-displayphoto-shrink_200_200/B4DZXDlJ1NHAAY-/0/1742743051995?e=2147483647&v=beta&t=9sAXxh7s27UGhpaFd31gEDsP3MK_gyoVSGZDd4c6KbQ" alt="Masihullah Omar" class="hero-avatar" />
         </div>
+        <div class="hero-badge fade-up">
+          <span class="badge-dot"></span>
+          Available for Opportunities
+        </div>
+        <h1 class="hero-title fade-up">
+          Hi, I'm <span class="gradient-text">Masihullah Omar</span>
+        </h1>
+        <div class="hero-typing-wrapper fade-up">
+          <span class="hero-typing-prefix">I build </span>
+          <span class="typing-text" id="typingText"></span>
+          <span class="typing-cursor">|</span>
+        </div>
+        <p class="hero-description fade-up">
+          Full Stack Software Engineer & AI/ML Specialist crafting
+          high-performance applications and intelligent systems. Based in
+          Istanbul, Turkey.
+        </p>
+        <div class="hero-actions fade-up">
+          <a href="#projects" class="btn btn--primary">
+            <i class="fas fa-rocket"></i> View My Work
+          </a>
+          <a href="#contact" class="btn btn--outline">
+            <i class="fas fa-paper-plane"></i> Get In Touch
+          </a>
+        </div>
+        <div class="hero-stats fade-up">
+          <div class="stat">
+            <span class="stat-number" data-count="100">0</span
+            ><span class="stat-suffix">k+</span>
+            <span class="stat-label">App Downloads</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-count="4">0</span
+            ><span class="stat-suffix">+</span>
+            <span class="stat-label">Active Roles</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-count="8">0</span
+            ><span class="stat-suffix">+</span>
+            <span class="stat-label">Certifications</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator fade-up">
+        <div class="mouse">
+          <div class="mouse-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT SECTION ===================== -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">About Me</span>
+          <h2 class="section-title fade-up">
+            Passionate Builder
+            <span class="gradient-text">&amp; Innovator</span>
+          </h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text fade-up">
+            <p>
+              I'm a Computer Engineering student at
+              <strong>Marmara University</strong>
+              with a deep passion for building impactful software. From
+              full-stack web platforms to AI-powered recommendation engines and
+              cross-platform mobile apps with 100k+ downloads, I thrive at the
+              intersection of engineering and innovation.
+            </p>
+            <p>
+              Currently working as a
+              <strong>Full Stack Software Engineer at SigortaSepeti</strong>,
+              developing mobile healthcare apps at
+              <strong>Hastanem Yanımda</strong>, co-founding
+              <strong>Socitek</strong> for social-impact technology, and
+              conducting <strong>AI research</strong> at Marmara University —
+              all simultaneously.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <div class="highlight-icon"><i class="fas fa-code"></i></div>
+                <div>
+                  <h4>Full Stack</h4>
+                  <p>.NET, React, Spring Boot</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon"><i class="fas fa-brain"></i></div>
+                <div>
+                  <h4>AI / ML</h4>
+                  <p>NLP, Deep Learning, Forecasting</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                  <h4>Mobile Dev</h4>
+                  <p>React Native, 100k+ Downloads</p>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon"><i class="fas fa-flask"></i></div>
+                <div>
+                  <h4>Research</h4>
+                  <p>Time-Series, NLP Models</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-card fade-up">
+            <div class="terminal-window">
+              <div class="terminal-header">
+                <span class="terminal-dot terminal-dot--red"></span>
+                <span class="terminal-dot terminal-dot--yellow"></span>
+                <span class="terminal-dot terminal-dot--green"></span>
+                <span class="terminal-title">masihullah@dev:~</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">whoami</span>
+                </div>
+                <div class="terminal-output">Masihullah Omar</div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">cat location.txt</span>
+                </div>
+                <div class="terminal-output">Istanbul, Turkey 🇹🇷</div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">cat education.txt</span>
+                </div>
+                <div class="terminal-output">
+                  BSc Computer Engineering<br />Marmara University (2022-2027)
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">ls current_roles/</span>
+                </div>
+                <div class="terminal-output">
+                  SigortaSepeti/<br />
+                  HastanemYanımda/<br />
+                  Socitek/<br />
+                  MarmaraResearch/
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd typing-terminal">█</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE SECTION ===================== -->
+    <section id="experience" class="section experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">Experience</span>
+          <h2 class="section-title fade-up">
+            Where I've <span class="gradient-text">Contributed</span>
+          </h2>
+        </div>
+        <div class="timeline">
+          <!-- SigortaSepeti -->
+          <div class="timeline-item fade-up">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">Full Stack Software Engineer</h3>
+                  <p class="timeline-company">SigortaSepeti</p>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-date"
+                    ><i class="fas fa-calendar-alt"></i> Jul 2025 –
+                    Present</span
+                  >
+                  <span class="timeline-location"
+                    ><i class="fas fa-map-marker-alt"></i> Istanbul,
+                    Turkey</span
+                  >
+                </div>
+              </div>
+              <span class="timeline-badge">Promoted from Intern</span>
+              <ul class="timeline-details">
+                <li>
+                  Build and maintain full-stack insurance platform using
+                  <strong>.NET, React.js, and MS SQL Server</strong>; design
+                  RESTful APIs and microservices.
+                </li>
+                <li>
+                  Reduced API latency via server-side optimizations: stored
+                  procedures, SQL Server triggers, indexing strategies, and
+                  endpoint refactoring.
+                </li>
+                <li>
+                  Collaborate in agile sprints, participate in code reviews, and
+                  maintain CI/CD deployment pipelines.
+                </li>
+              </ul>
+              <div class="timeline-tech">
+                <span class="tech-tag">.NET</span>
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">MS SQL Server</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hastanem Yanımda -->
+          <div class="timeline-item fade-up">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">Mobile Application Developer</h3>
+                  <p class="timeline-company">Hastanem Yanımda</p>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-date"
+                    ><i class="fas fa-calendar-alt"></i> Jun 2025 –
+                    Present</span
+                  >
+                  <span class="timeline-location"
+                    ><i class="fas fa-map-marker-alt"></i> Remote</span
+                  >
+                </div>
+              </div>
+              <ul class="timeline-details">
+                <li>
+                  Develop cross-platform healthcare mobile applications for iOS
+                  &amp; Android; integrate REST APIs for patient data and
+                  service connectivity.
+                </li>
+                <li>
+                  Achieved <strong>100k+ downloads</strong> on app stores while
+                  maintaining user-facing reliability and data-security
+                  practices.
+                </li>
+                <li>
+                  Design UX-focused interfaces for clinicians and patients;
+                  follow data security and compliance best practices.
+                </li>
+              </ul>
+              <div class="timeline-tech">
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">iOS</span>
+                <span class="tech-tag">Android</span>
+                <span class="tech-tag">Healthcare</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Socitek -->
+          <div class="timeline-item fade-up">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">Co-Founder & Lead Developer</h3>
+                  <p class="timeline-company">Socitek Dev</p>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-date"
+                    ><i class="fas fa-calendar-alt"></i> Feb 2024 –
+                    Present</span
+                  >
+                  <span class="timeline-location"
+                    ><i class="fas fa-map-marker-alt"></i> Istanbul,
+                    Turkey</span
+                  >
+                </div>
+              </div>
+              <ul class="timeline-details">
+                <li>
+                  Co-founded a startup building social-impact mobile apps; lead
+                  product and technical direction from concept to store
+                  publication.
+                </li>
+                <li>
+                  Developed <strong>Neidiya</strong>, a mobile assistant for
+                  dorm students (bus schedules, meal plans, announcements,
+                  reminders).
+                </li>
+                <li>
+                  Manage architecture decisions, roadmap, and partnerships to
+                  scale product impact.
+                </li>
+              </ul>
+              <div class="timeline-tech">
+                <span class="tech-tag">Mobile Dev</span>
+                <span class="tech-tag">Product Strategy</span>
+                <span class="tech-tag">Startup</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marmara Research -->
+          <div class="timeline-item fade-up">
+            <div class="timeline-marker">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content glass-card">
+              <div class="timeline-header-row">
+                <div>
+                  <h3 class="timeline-role">
+                    Undergraduate Research Assistant
+                  </h3>
+                  <p class="timeline-company">Marmara University</p>
+                </div>
+                <div class="timeline-meta">
+                  <span class="timeline-date"
+                    ><i class="fas fa-calendar-alt"></i> Jan 2025 –
+                    Present</span
+                  >
+                  <span class="timeline-location"
+                    ><i class="fas fa-map-marker-alt"></i> Istanbul,
+                    Turkey</span
+                  >
+                </div>
+              </div>
+              <ul class="timeline-details">
+                <li>
+                  Research in time-series forecasting (Prophet, ARIMA, SARIMA,
+                  LSTM, LightGBM, XGBoost) for sales prediction and seasonality
+                  analysis.
+                </li>
+                <li>
+                  Built Python pipelines for data processing and created
+                  <strong>Streamlit/Plotly dashboards</strong> for stakeholders.
+                </li>
+                <li>
+                  Applied hyperparameter tuning and cross-validation to improve
+                  model generalization.
+                </li>
+              </ul>
+              <div class="timeline-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LSTM</span>
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">Plotly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS SECTION ===================== -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">Projects</span>
+          <h2 class="section-title fade-up">
+            Featured <span class="gradient-text">Work</span>
+          </h2>
+        </div>
+        <div class="projects-grid">
+          <!-- Nexus OS -->
+          <div class="project-card glass-card fade-up project-card--featured">
+            <div class="project-card-glow"></div>
+            <div class="project-header">
+              <div class="project-icon project-icon--featured"><i class="fas fa-terminal"></i></div>
+              <div class="project-header-right">
+                <span class="project-featured-badge"><i class="fas fa-star"></i> Featured</span>
+                <span class="project-year">2025</span>
+              </div>
+            </div>
+            <h3 class="project-title">Nexus OS</h3>
+            <p class="project-subtitle">Custom Linux-Based Operating System</p>
+            <p class="project-desc">
+              A lightweight OS built from scratch in C. Features a custom terminal UI,
+              AI assistant (Ollama), process management with isolated memory, round-robin
+              scheduler, IPC mailbox, virtual filesystem, built-in web server &mdash; all
+              packaged into a <strong>bootable ISO</strong>.
+            </p>
+            <div class="project-tech">
+              <span>C</span>
+              <span>Linux</span>
+              <span>Bash</span>
+              <span>Ollama AI</span>
+              <span>QEMU</span>
+              <span>Makefile</span>
+            </div>
+          </div>
+
+          <!-- Musicalitisim -->
+          <div class="project-card glass-card fade-up">
+            <div class="project-card-glow"></div>
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-music"></i></div>
+              <span class="project-year">2025</span>
+            </div>
+            <h3 class="project-title">Musicalitisim</h3>
+            <p class="project-subtitle">Music Recommendation Platform</p>
+            <p class="project-desc">
+              Full-stack cross-platform app with a hybrid recommendation system
+              using clustering, matrix factorization, and similarity-based
+              methods. Spring Boot backend + React Native frontend with
+              personalized playlists and secure auth.
+            </p>
+            <div class="project-tech">
+              <span>Spring Boot</span>
+              <span>React Native</span>
+              <span>MS SQL Server</span>
+              <span>ML</span>
+            </div>
+          </div>
+
+          <!-- Turkish Address Parser -->
+          <div class="project-card glass-card fade-up">
+            <div class="project-card-glow"></div>
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <span class="project-year">2025</span>
+            </div>
+            <h3 class="project-title">Turkish Address Parser</h3>
+            <p class="project-subtitle">BERT-Based Token Classification</p>
+            <p class="project-desc">
+              BERT-based token classification model for parsing messy Turkish
+              addresses with augmentation and gazetteer integration. Achieved
+              <strong>0.99 F1 score</strong> on test benchmark. Published on
+              HuggingFace.
+            </p>
+            <div class="project-tech">
+              <span>BERT</span>
+              <span>Transformers</span>
+              <span>Python</span>
+              <span>NLP</span>
+              <span>HuggingFace</span>
+            </div>
+            <div class="project-metric">
+              <span class="metric-value">0.99</span>
+              <span class="metric-label">F1 Score</span>
+            </div>
+          </div>
+
+          <!-- CineBook -->
+          <div class="project-card glass-card fade-up">
+            <div class="project-card-glow"></div>
+            <div class="project-header">
+              <div class="project-icon"><i class="fas fa-film"></i></div>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-title">CineBook</h3>
+            <p class="project-subtitle">Film Discovery Platform</p>
+            <p class="project-desc">
+              Film recommendation app integrating TMDB API and an LLM-fine-tuned
+              recommender for mood-based suggestions. Desktop UI with
+              CustomTkinter. Achieved <strong>0.98 F1 score</strong> on
+              benchmark.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>TMDB API</span>
+              <span>LLaMA</span>
+              <span>Fine-tuning</span>
+            </div>
+            <div class="project-metric">
+              <span class="metric-value">0.98</span>
+              <span class="metric-label">F1 Score</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS SECTION ===================== -->
+    <section id="skills" class="section skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">Skills</span>
+          <h2 class="section-title fade-up">
+            Technical <span class="gradient-text">Arsenal</span>
+          </h2>
+        </div>
+        <div class="skills-grid">
+          <!-- Languages -->
+          <div class="skill-category glass-card fade-up">
+            <div class="skill-category-icon"><i class="fas fa-code"></i></div>
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">R</span>
+            </div>
+          </div>
+
+          <!-- Frameworks -->
+          <div class="skill-category glass-card fade-up">
+            <div class="skill-category-icon">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <h3>Frameworks & Libraries</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Spring Boot</span>
+              <span class="skill-tag">.NET</span>
+              <span class="skill-tag">Flask</span>
+              <span class="skill-tag">FastAPI</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">Transformers</span>
+            </div>
+          </div>
+
+          <!-- Databases/Tools -->
+          <div class="skill-category glass-card fade-up">
+            <div class="skill-category-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>Databases & Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">MS SQL Server</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">GCP</span>
+              <span class="skill-tag">VS Code</span>
+            </div>
+          </div>
+
+          <!-- ML/AI -->
+          <div class="skill-category glass-card fade-up">
+            <div class="skill-category-icon"><i class="fas fa-robot"></i></div>
+            <h3>ML / AI</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">scikit-learn</span>
+              <span class="skill-tag">pandas</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">HuggingFace</span>
+              <span class="skill-tag">NLP</span>
+              <span class="skill-tag">Deep Learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION SECTION ===================== -->
+    <section id="education" class="section education">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">Education</span>
+          <h2 class="section-title fade-up">
+            Academic <span class="gradient-text">Background</span>
+          </h2>
+        </div>
+        <div class="education-card glass-card fade-up">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-content">
+            <h3>Bachelor of Science in Computer Engineering</h3>
+            <p class="edu-school">Marmara University</p>
+            <p class="edu-detail">
+              <i class="fas fa-map-marker-alt"></i> Istanbul, Turkey
+            </p>
+            <p class="edu-detail">
+              <i class="fas fa-calendar-alt"></i> Sep 2022 – July 2027
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS SECTION ===================== -->
+    <section id="certifications" class="section certifications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">Certifications</span>
+          <h2 class="section-title fade-up">
+            Continuous <span class="gradient-text">Learning</span>
+          </h2>
+        </div>
+        <div class="certs-grid">
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fab fa-google"></i></div>
+            <h4>Google Data Analytics Professional Certificate</h4>
+            <p>Coursera</p>
+          </div>
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fas fa-brain"></i></div>
+            <h4>Deep Learning Specialization</h4>
+            <p>DeepLearning.AI</p>
+          </div>
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fas fa-heartbeat"></i></div>
+            <h4>AI for Medicine Specialization</h4>
+            <p>DeepLearning.AI</p>
+          </div>
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fas fa-briefcase"></i></div>
+            <h4>AI For Business Specialization</h4>
+            <p>University of Pennsylvania</p>
+          </div>
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fas fa-eye"></i></div>
+            <h4>First Principles of Computer Vision</h4>
+            <p>Columbia University</p>
+          </div>
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fas fa-brain"></i></div>
+            <h4>Computational Neuroscience</h4>
+            <p>University of Washington</p>
+          </div>
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fas fa-project-diagram"></i></div>
+            <h4>Algorithms Specialization</h4>
+            <p>Stanford University</p>
+          </div>
+          <div class="cert-card glass-card fade-up">
+            <div class="cert-icon"><i class="fas fa-calculator"></i></div>
+            <h4>Intro to Discrete Mathematics for CS</h4>
+            <p>UC San Diego</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VOLUNTEER SECTION ===================== -->
+    <section id="volunteer" class="section volunteer">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">Community</span>
+          <h2 class="section-title fade-up">
+            Volunteer <span class="gradient-text">Work</span>
+          </h2>
+        </div>
+        <div class="volunteer-grid">
+          <div class="volunteer-card glass-card fade-up">
+            <div class="vol-icon"><i class="fas fa-book"></i></div>
+            <h4>Lincoln Library</h4>
+            <p class="vol-role">Community Technology Support</p>
+            <p class="vol-date">2016 – 2023</p>
+          </div>
+          <div class="volunteer-card glass-card fade-up">
+            <div class="vol-icon"><i class="fas fa-pen-fancy"></i></div>
+            <h4>Balkh Literature Association</h4>
+            <p class="vol-role">Educational Content Development</p>
+            <p class="vol-date">2016 – 2023</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag fade-up">Contact</span>
+          <h2 class="section-title fade-up">
+            Let's <span class="gradient-text">Connect</span>
+          </h2>
+          <p class="section-subtitle fade-up">
+            I'm always open to discussing new projects, opportunities, or
+            partnerships.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <a
+            href="mailto:masihullahomar2001@gmail.com"
+            class="contact-card glass-card fade-up"
+          >
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <h4>Email</h4>
+            <p>masihullahomar2001@gmail.com</p>
+          </a>
+          <a href="tel:+905079526488" class="contact-card glass-card fade-up">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <h4>Phone</h4>
+            <p>+90 507 952 6488</p>
+          </a>
+          <a
+            href="https://linkedin.com/in/masihullah-omar-274711261"
+            target="_blank"
+            rel="noopener"
+            class="contact-card glass-card fade-up"
+          >
+            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+            <h4>LinkedIn</h4>
+            <p>masihullah-omar</p>
+          </a>
+          <a
+            href="https://github.com/MasihOmar"
+            target="_blank"
+            rel="noopener"
+            class="contact-card glass-card fade-up"
+          >
+            <div class="contact-icon"><i class="fab fa-github"></i></div>
+            <h4>GitHub</h4>
+            <p>MasihOmar</p>
+          </a>
+          <a
+            href="https://huggingface.co/masihO"
+            target="_blank"
+            rel="noopener"
+            class="contact-card glass-card fade-up"
+          >
+            <div class="contact-icon"><i class="fas fa-robot"></i></div>
+            <h4>HuggingFace</h4>
+            <p>masihO</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <a href="#hero" class="footer-logo">
+            <span class="logo-bracket">&lt;</span>MO<span class="logo-bracket"
+              >/&gt;</span
+            >
+          </a>
+          <div class="footer-links">
+            <a
+              href="https://github.com/MasihOmar"
+              target="_blank"
+              rel="noopener"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://linkedin.com/in/masihullah-omar-274711261"
+              target="_blank"
+              rel="noopener"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://huggingface.co/masihO"
+              target="_blank"
+              rel="noopener"
+              ><i class="fas fa-robot"></i
+            ></a>
+            <a href="mailto:masihullahomar2001@gmail.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+          <p class="footer-copy">
+            &copy; 2026 Masihullah Omar. Built with passion &amp; code.
+          </p>
+        </div>
+      </div>
     </footer>
-</body>
+
+    <script src="scripts/main.js"></script>
+  </body>
 </html>
