@@ -427,6 +427,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if(emailField) formData.append('fi-sender-email', emailField.value);
       if(messageField) formData.append('fi-text-message', messageField.value);
       
+      // Attach Radio Buttons
+      const selectedReason = contactForm.querySelector('input[name="fi-radio-reason"]:checked');
+      if (selectedReason) formData.append('fi-radio-reason', selectedReason.value);
+
+      // Attach Checkboxes
+      const selectedServices = contactForm.querySelectorAll('input[name="fi-check-services"]:checked');
+      if (selectedServices.length > 0) {
+        const servicesArray = Array.from(selectedServices).map(cb => cb.value).join(', ');
+        formData.append('fi-text-services', servicesArray);
+      }
+
+      // Attach file
       if (fileInput && fileInput.files.length > 0) {
         formData.append('fi-file-attachment', fileInput.files[0]);
       }

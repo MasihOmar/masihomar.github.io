@@ -1726,14 +1726,20 @@ img {
 @media (min-width: 900px) {
   .contact-wrapper {
     grid-template-columns: 320px 1fr;
-    align-items: flex-start;
+    align-items: stretch;
   }
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+}
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contact-card {
@@ -1891,6 +1897,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
   width: 48px;
   height: 48px;
   background: rgba(0, 212, 255, 0.1);
@@ -1965,6 +1973,119 @@ img {
 .file-remove:hover {
   color: #ff4b4b;
 }
+
+/* --- Radio & Checkbox Styles --- */
+.options-group {
+  margin-bottom: 0.5rem;
+}
+
+.options-group > label {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.radio-group, .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.custom-radio, .custom-checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 32px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  user-select: none;
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+.custom-radio:hover, .custom-checkbox:hover {
+  color: var(--primary-color);
+}
+
+.custom-radio input, .custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-mark, .checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.radio-mark {
+  border-radius: 50%;
+}
+
+.checkmark {
+  border-radius: 4px;
+}
+
+.custom-radio:hover input ~ .radio-mark,
+.custom-checkbox:hover input ~ .checkmark {
+  border-color: var(--primary-color);
+  background-color: rgba(0, 240, 255, 0.05); /* subtle primary tint */
+}
+
+.custom-radio input:checked ~ .radio-mark,
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: transparent;
+  border-color: var(--primary-color);
+}
+
+.radio-mark:after, .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-radio input:checked ~ .radio-mark:after,
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Radio Button Dot */
+.custom-radio .radio-mark:after {
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5); /* glow effect */
+}
+
+/* Checkbox Tick */
+.custom-checkbox .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--primary-color);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  box-shadow: 2px 2px 5px rgba(0, 240, 255, 0.2); /* subtle glow */
+}
+
 
 .submit-btn {
   justify-content: center;
