@@ -409,6 +409,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Handle Form Reset
+  if (contactForm) {
+    contactForm.addEventListener('reset', function() {
+      if (fileInput) {
+        fileInput.value = '';
+        fileNameCode.textContent = '';
+        fileLabel.style.display = 'flex';
+        fileNameDisplay.style.display = 'none';
+      }
+      if (formResult) {
+        formResult.style.display = 'none';
+      }
+    });
+  }
+
   // Handle AJAX Form Submission
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {

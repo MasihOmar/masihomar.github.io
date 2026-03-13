@@ -2087,9 +2087,26 @@ img {
 }
 
 
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.clear-btn {
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-light);
+}
+
+.clear-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
 .submit-btn {
   justify-content: center;
-  margin-top: 8px;
 }
 
 .w-100 {
