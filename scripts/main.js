@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // 11. WEB3FORMS CONTACT FORM HANDLING
+  // 11. CONTACT FORM HANDLING (GETFORM)
   // ==========================================
   const contactForm = document.getElementById('contactForm');
   const formResult = document.getElementById('formResult');
@@ -414,7 +414,27 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      const formData = new FormData(contactForm);
+      const formAction = contactForm.getAttribute('action');
+      const formData = new FormData();
+      
+      // Manually append all fields by their IDs to guarantee data is collected
+      // Forminit REQUIRES strict field naming conventions (fi-blockType-property)
+      const nameField = document.getElementById('name');
+      const emailField = document.getElementById('email');
+      const messageField = document.getElementById('message');
+      
+      if(nameField) formData.append('fi-sender-fullName', nameField.value);
+      if(emailField) formData.append('fi-sender-email', emailField.value);
+      if(messageField) formData.append('fi-text-message', messageField.value);
+      
+      if (fileInput && fileInput.files.length > 0) {
+        formData.append('fi-file-attachment', fileInput.files[0]);
+      }
+
+      // Append botcheck if present in form
+      const gotchaField = contactForm.querySelector('input[name="_gotcha"]');
+      if (gotchaField) formData.append('_gotcha', gotchaField.value);
+
       const originalBtnText = submitBtn.innerHTML;
       
       // Setup loading state
@@ -422,14 +442,17 @@ document.addEventListener("DOMContentLoaded", () => {
       submitBtn.disabled = true;
       if(formResult) formResult.style.display = 'none';
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch(formAction, {
         method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
         body: formData
       })
-      .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
-          showResult(json.message, 'success');
+      .then(response => {
+        if (response.ok || response.status === 302) {
+          // Forminit sometimes returns 302 Redirect on success
+          showResult('Message sent successfully!', 'success');
           contactForm.reset();
           // Reset file input appearance
           if (fileInput) {
@@ -438,12 +461,18 @@ document.addEventListener("DOMContentLoaded", () => {
             fileNameDisplay.style.display = 'none';
           }
         } else {
-          showResult(json.message || 'Something went wrong.', 'error');
+          // Attempt to parse JSON error message if provided by Getform
+          response.json().then(data => {
+            console.error("Forminit Error:", data);
+            showResult(data.message || data.error || 'Something went wrong. Please try again.', 'error');
+          }).catch(() => {
+             showResult('Something went wrong. Please try again.', 'error');
+          });
         }
       })
       .catch(error => {
         console.error(error);
-        showResult('Something went wrong. Please try again later.', 'error');
+        showResult('Network connection error. Please try again later.', 'error');
       })
       .finally(() => {
         submitBtn.innerHTML = originalBtnText;
