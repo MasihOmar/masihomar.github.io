@@ -1715,12 +1715,25 @@ img {
 /* ============================================
    CONTACT
    ============================================ */
-.contact-grid {
+.contact-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 900px;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .contact-wrapper {
+    grid-template-columns: 320px 1fr;
+    align-items: flex-start;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .contact-card {
@@ -1762,6 +1775,229 @@ img {
   font-size: 0.82rem;
   color: var(--text-muted);
   word-break: break-all;
+}
+
+/* ---------- CONTACT FORM ---------- */
+.contact-form-container {
+  padding: 32px;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 16px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: color var(--transition-fast);
+}
+
+.input-wrapper .align-top {
+  top: 16px;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%;
+  background: rgba(10, 16, 24, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  padding: 14px 16px 14px 44px;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  transition: all var(--transition-smooth);
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+  outline: none;
+  border-color: rgba(0, 212, 255, 0.4);
+  background: rgba(0, 212, 255, 0.05);
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
+}
+
+.input-wrapper input:focus + i,
+.input-wrapper textarea:focus + i,
+.input-wrapper input:not(:placeholder-shown) + i,
+.input-wrapper textarea:not(:placeholder-shown) + i {
+  color: #00d4ff;
+}
+
+.input-wrapper textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* File Upload Premium Styling */
+.file-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px dashed rgba(0, 212, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(0, 212, 255, 0.02);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.file-label:hover {
+  border-color: rgba(0, 212, 255, 0.6);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.file-icon {
+  font-size: 1.5rem;
+  color: #00d4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 6px;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.file-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.file-subtext {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.btn--small {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+/* File display badge */
+.file-name-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(123, 97, 255, 0.1);
+  border: 1px solid rgba(123, 97, 255, 0.3);
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.file-name-display.active {
+  display: flex;
+  animation: fade-in var(--transition-smooth);
+}
+
+.file-name-display i {
+  color: #7b61ff;
+  font-size: 1.2rem;
+}
+
+#fileNameCode {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: color var(--transition-fast);
+  padding: 4px;
+}
+
+.file-remove:hover {
+  color: #ff4b4b;
+}
+
+.submit-btn {
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.form-result {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  display: none;
+}
+
+.form-result.success {
+  display: block;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+  animation: fade-in var(--transition-smooth);
+}
+
+.form-result.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  animation: fade-in var(--transition-smooth);
 }
 
 /* ============================================
@@ -1942,8 +2178,8 @@ img {
   }
 
   /* Contact */
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
+  .contact-wrapper {
+    grid-template-columns: 1fr;
   }
 
   /* Certifications */
@@ -1976,7 +2212,7 @@ img {
     height: 1px;
   }
 
-  .contact-grid {
+  .contact-wrapper {
     grid-template-columns: 1fr;
   }
 

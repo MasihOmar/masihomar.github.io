@@ -370,4 +370,99 @@ document.addEventListener("DOMContentLoaded", () => {
     // Decreased speed further: Changed interval from 80 to 120
     setInterval(drawMatrix, 120);
   }
+
+  // ==========================================
+  // 11. WEB3FORMS CONTACT FORM HANDLING
+  // ==========================================
+  const contactForm = document.getElementById('contactForm');
+  const formResult = document.getElementById('formResult');
+  const fileInput = document.getElementById('attachment');
+  const fileLabel = document.getElementById('fileLabel');
+  const fileNameDisplay = document.getElementById('fileNameDisplay');
+  const fileNameCode = document.getElementById('fileNameCode');
+  const removeFileBtn = document.getElementById('removeFileBtn');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Handle File Input Selection
+  if (fileInput) {
+    fileInput.addEventListener('change', function() {
+      if (this.files && this.files.length > 0) {
+        const file = this.files[0];
+        // Validate file size (10MB)
+        if (file.size > 10 * 1024 * 1024) {
+          showResult('File size should not exceed 10MB.', 'error');
+          this.value = '';
+          return;
+        }
+        fileNameCode.textContent = file.name;
+        fileLabel.style.display = 'none';
+        fileNameDisplay.style.display = 'flex';
+        if(formResult) formResult.style.display = 'none'; // Clear errors
+      }
+    });
+
+    removeFileBtn.addEventListener('click', () => {
+      fileInput.value = '';
+      fileNameCode.textContent = '';
+      fileLabel.style.display = 'flex';
+      fileNameDisplay.style.display = 'none';
+    });
+  }
+
+  // Handle AJAX Form Submission
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(contactForm);
+      const originalBtnText = submitBtn.innerHTML;
+      
+      // Setup loading state
+      submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+      submitBtn.disabled = true;
+      if(formResult) formResult.style.display = 'none';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          showResult(json.message, 'success');
+          contactForm.reset();
+          // Reset file input appearance
+          if (fileInput) {
+            fileInput.value = '';
+            fileLabel.style.display = 'flex';
+            fileNameDisplay.style.display = 'none';
+          }
+        } else {
+          showResult(json.message || 'Something went wrong.', 'error');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        showResult('Something went wrong. Please try again later.', 'error');
+      })
+      .finally(() => {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        
+        // Clear success message after 5 seconds
+        if (formResult && formResult.classList.contains('success')) {
+          setTimeout(() => {
+            formResult.style.display = 'none';
+          }, 5000);
+        }
+      });
+    });
+  }
+
+  function showResult(message, type) {
+    if (!formResult) return;
+    formResult.innerHTML = message;
+    formResult.className = `form-result ${type}`;
+    formResult.style.display = 'block';
+  }
 });
